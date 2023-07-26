@@ -1,7 +1,7 @@
 # Springboard
 Springboard Data Science Career Track GitHub
 
-4 Commands needs:
+4 Commands needed:
 git status
 git add
 git commit
