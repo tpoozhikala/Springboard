@@ -11,3 +11,5 @@ git push origin master
 - git add [filename]: adds file to current commit
 - git commit -m '[message]': add commit locally
 - git push origin (master): push commit to your github repository
+
+More Information regarding creating a branch and merging branch with pull request here: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
