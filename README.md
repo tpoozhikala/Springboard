@@ -13,3 +13,4 @@ git push origin master
 - git push origin (master): push commit to your github repository
 
 More Information regarding creating a branch and merging branch with pull request here: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners
+Information on forking a repo found here: https://docs.github.com/en/get-started/quickstart/fork-a-repo
