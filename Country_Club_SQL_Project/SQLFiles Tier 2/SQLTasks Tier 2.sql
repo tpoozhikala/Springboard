@@ -107,6 +107,15 @@ the guest user's ID is always 0. Include in your output the name of the
 facility, the name of the member formatted as a single column, and the cost.
 Order by descending cost, and do not use any subqueries. */
 
+/* Code for concatenating first name and last name columns found on https://stackoverflow.com/questions/48576847/how-to-combine-first-name-middle-name-and-last-name-in-sql-server */
+SELECT DISTINCT CONCAT(m.firstname, " ", m.surname) AS member_name, f.name , f.membercost, f.guestcost
+FROM Bookings AS b
+INNER JOIN Members AS m 
+ON b.memid = m.memid
+INNER JOIN Facilities AS f 
+ON b.facid = f.facid
+WHERE b.starttime LIKE '2012-09-14%' AND (f.membercost > 30 OR f.guestcost > 30)
+ORDER BY f.membercost DESC, f.guestcost DESC;
 
 /* Q9: This time, produce the same result as in Q8, but using a subquery. */
 
