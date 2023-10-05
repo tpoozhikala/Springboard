@@ -120,6 +120,7 @@ ORDER BY f.membercost DESC, f.guestcost DESC;
 /* Q9: This time, produce the same result as in Q8, but using a subquery. */
 
 
+
 /* PART 2: SQLite
 
 Export the country club data from PHPMyAdmin, and connect to a local SQLite instance from Jupyter notebook 
