@@ -89,6 +89,16 @@ Include in your output the name of the court, and the name of the member
 formatted as a single column. Ensure no duplicate data, and order by
 the member name. */
 
+/* Code for concatenating first name and last name columns found on https://stackoverflow.com/questions/48576847/how-to-combine-first-name-middle-name-and-last-name-in-sql-server */
+SELECT DISTINCT CONCAT(m.firstname, " ", m.surname) AS member_name,  f.name
+FROM Bookings AS b
+INNER JOIN Members AS m 
+ON b.memid = m.memid
+INNER JOIN Facilities AS f 
+ON b.facid = f.facid
+WHERE f.name LIKE 'Tennis Court%' 
+ORDER BY member_name;
+
 
 /* Q8: Produce a list of bookings on the day of 2012-09-14 which
 will cost the member (or guest) more than $30. Remember that guests have
