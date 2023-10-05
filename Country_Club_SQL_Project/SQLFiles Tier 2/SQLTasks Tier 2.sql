@@ -120,7 +120,16 @@ ORDER BY f.membercost DESC, f.guestcost DESC;
 
 /* Q9: This time, produce the same result as in Q8, but using a subquery. */
 
-
+SELECT DISTINCT CONCAT(m.firstname, " ", m.surname) AS member_name, sub.name , sub.membercost, sub.guestcost
+FROM Members AS m 
+INNER JOIN (
+    SELECT *
+    FROM Facilities AS f
+    INNER JOIN Bookings AS b
+    USING(facid) ) AS sub
+ON m.memid = sub.memid
+WHERE sub.starttime LIKE '2012-09-14%' AND (sub.membercost > 30 OR sub.guestcost > 30)
+ORDER BY sub.membercost DESC, sub.guestcost DESC;
 
 /* PART 2: SQLite
 
