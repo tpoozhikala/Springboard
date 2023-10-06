@@ -61,8 +61,9 @@ ORDER BY membercost DESC;
 /* Q4: Write an SQL query to retrieve the details of facilities with ID 1 and 5.
 Try writing the query without using the OR operator. */
 
-
-
+SELECT *
+FROM Facilities
+WHERE facid IN (1 , 5);
 
 /* Q5: Produce a list of facilities, with each labelled as
 'cheap' or 'expensive', depending on if their monthly maintenance cost is
@@ -119,7 +120,16 @@ ORDER BY f.membercost DESC, f.guestcost DESC;
 
 /* Q9: This time, produce the same result as in Q8, but using a subquery. */
 
-
+SELECT DISTINCT CONCAT(m.firstname, " ", m.surname) AS member_name, sub.name , sub.membercost, sub.guestcost
+FROM Members AS m 
+INNER JOIN (
+    SELECT *
+    FROM Facilities AS f
+    INNER JOIN Bookings AS b
+    USING(facid) ) AS sub
+ON m.memid = sub.memid
+WHERE sub.starttime LIKE '2012-09-14%' AND (sub.membercost > 30 OR sub.guestcost > 30)
+ORDER BY sub.membercost DESC, sub.guestcost DESC;
 
 /* PART 2: SQLite
 
